@@ -15,7 +15,7 @@ namespace Shkadun_Bank
             //Параллельная задача, начисляющая проценты по кредитам каждые 20 секунд.
             Task task = Task.Factory.StartNew(() =>
             {
-                while (true)
+                while(true)
                 {
                     Thread.Sleep(20000);
                     Account.CheckAllCards(listAccounts);    //Метод проверяющий и начисляющий кредиты
@@ -27,14 +27,14 @@ namespace Shkadun_Bank
                 switch (cwar.WhatDo())
                 {
                     case 0: //Создание счёта
-                        listAccounts.Add(new Account());
+                        listAccounts.Add(new Account()); 
                         break;
                     case 1: //Создание карты
                         Account.ListAccount(listAccounts);
                         Account.AddCard(listAccounts, cwar.ReadNumber(0, listAccounts.Count - 1));
                         break;
                     case 2: //Вывод списка карт
-                        Account.ListAccount(listAccounts);
+                        Account.ListAccount(listAccounts); 
                         Account.ListCard(listAccounts, cwar.ReadNumber(0, listAccounts.Count - 1));
                         break;
                     case 3: //Пополнить карту
@@ -42,7 +42,7 @@ namespace Shkadun_Bank
                         Account.ChooseCard(listAccounts, cwar.ReadNumber(0, listAccounts.Count - 1));
                         break;
                     case 4: //Снять с карты 
-                        Account.ListAccount(listAccounts);
+                        Account.ListAccount(listAccounts); 
                         Account.PullMoney(listAccounts, cwar.ReadNumber(0, listAccounts.Count - 1));
                         break;
                     case 5: //Первод на карту
