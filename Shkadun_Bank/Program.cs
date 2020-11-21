@@ -42,7 +42,7 @@ namespace Shkadun_Bank
                         Account.ChooseCard(listAccounts, cwar.ReadNumber(0, listAccounts.Count - 1));
                         break;
                     case 4: //Снять с карты 
-                        Account.ListAccount(listAccounts);
+                        Account.ListAccount(listAccounts); 
                         Account.PullMoney(listAccounts, cwar.ReadNumber(0, listAccounts.Count - 1));
                         break;
                     case 5: //Первод на карту
